@@ -40,4 +40,6 @@ def main():
         result = solution(a)
         for b in result:
             print(b, end='')
+        print('')
 
+main()
