@@ -39,7 +39,7 @@ def main():
     for a in get:
         result = solution(a)
         for b in result:
-            print(b, end='')
+            print(str(b) + ' ', end='')
         print('')
 
 main()
