@@ -33,5 +33,11 @@ def solution(case):
             start += 1
 
     return result
-case = [6, 6, 7, 8, 9]
-print(solution(case))
+
+def main():
+    get = Input()
+    for a in get:
+        result = solution(a)
+        for b in result:
+            print(b, end='')
+
