@@ -17,6 +17,9 @@ def GetHowMany(i, b):
     else:
         return (9 * (10 ** (i - 1))) / b
 
+def FindState(a, b, c):
+    i = 0
+    while 
 def Solution(case):
     # Setting Number Part
     a = case[0]
@@ -24,7 +27,7 @@ def Solution(case):
     c = case[2]
 
     # c 가 몇번째 자리 수인지 찾기
-    
+
 
 def main():
     Cases = Input()
