@@ -23,24 +23,8 @@ def Solution(case):
     b = case[1]
     c = case[2]
 
-    d = 0
-    i = 1
-    while d < c:
-        if a < 10 and i == 1:
-            d += GetHowMany(i, b) * i
-            i += 1
-
-    # i - 1 자리 숫자에 있음
-    e = 1
-    while e < i - 1:
-        c -= GetHowMany(e, b) * e
-        e += 1
-
-    if c % (i - 1) == 0:
-
-
+    # c 가 몇번째 자리 수인지 찾기
     
-    print(i)
 
 def main():
     Cases = Input()
