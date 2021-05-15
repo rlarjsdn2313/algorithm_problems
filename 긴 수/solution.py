@@ -7,18 +7,19 @@ def Input():
 
     return Result
 
+
 def Solution(case):
-    Num = ''
+    Num = []
     a = case[0]
     b = case[1]
     c = case[2]
 
     i = 0
     while c > len(Num):
-        Num += str(a + b * i)
+        Num.append(str(a + b * i))
         i += 1
-
-    return Num[c-1]
+    print(Num)
+    return ''.join(Num)[c-1]
 
 def main():
     Cases = Input()
