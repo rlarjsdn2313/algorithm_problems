@@ -6,27 +6,14 @@ def Input():
         Result.append([int(a) for a in str(input('')).split(' ')])
 
     return Result
-
-def GetHowBig(n):
-    return len(str(n))
-
-def Get(a, b, c):
-    HowABig = GetHowBig(a)
-    i = 2
-    if HowABig == 1:
-        c -= 9 // b
-
-    d = (9 * (10 ** (i - 1))) // b
-    # 9 * (10 ** (i - 1)) / b
-    while d * i < c:
-        if a >= 10 ** i:
-            continue
-        c -= d
+def GetSize(n):
+    i = 1
+    while n >= 10 ** i:
         i += 1
-        d = (9 * (10 ** (i - 1))) // b
+    return i
 
-
-    return [i, c]
+def GetToN(n, a, b):
+    return ((10 ** n) - a) // b
 
 def Solution(case):
     # Setting Number Part
@@ -34,36 +21,27 @@ def Solution(case):
     b = case[1]
     c = case[2]
 
+    start = GetSize(a)
+    oldI = 0
+    i = GetToN(start, a, b)
+    # a + b(i - 1) < 10 ** (start)
+    # bi < 10 ** (start) - a + b
+    # i < ((10 ** start) - a) // b + 1
 
-    number, index = Get(a, b, c)
-
-    l = 5
-    i = 0
-    R = a + b * i
-
-    while True:
-        if R >= 10 ** (number - 1):
-            while not R >= 10 ** (number - 1):
-                R = a + b * i
-                print(R)
-                i -= 1
-            break
-        else:
-            R = a + b * i
-            i += l
+    while c > start * (i + 1 - oldI):
+        oldI = i
+        c -= start * (i + 1 - oldI)
+        start += 1
+        i = GetToN(start, a, b)
+    print(GetToN(start, a, b))
     
-    i -= 1
-    print(i)
-    print (a + b * i)
-    # while l <= c:
-    #     R = str(a + b * i)
-    #     print(R)
-    #     l = len(R)
-    #     c -= l
+    
+
+    # while a + b * i 
     #     i += 1
 
-    # print(R)
-    # return R[c - 1]
+    # a + bi < 10
+
 
 def main():
     Cases = Input()
