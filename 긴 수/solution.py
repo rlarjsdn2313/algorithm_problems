@@ -28,19 +28,26 @@ def Solution(case):
     # bi < 10 ** (start) - a + b
     # i < ((10 ** start) - a) // b + 1
 
-    while c > start * (i + 1 - oldI):
+    while c > start * (i - oldI):
+        c -= start * (i - oldI)
         oldI = i
-        c -= start * (i + 1 - oldI)
         start += 1
         i = GetToN(start, a, b)
-    print(GetToN(start, a, b))
-    
-    
 
-    # while a + b * i 
-    #     i += 1
+    i = GetToN(start - 1, a, b)
+    if i < 0:
+        i = 0
 
-    # a + bi < 10
+
+    # a + b(i - 1)
+    q = c // start
+    r = c % q
+    i += q
+
+
+    re = str(a + b * (i -1))
+    return re[len(re) - 1 - r]
+
 
 
 def main():
