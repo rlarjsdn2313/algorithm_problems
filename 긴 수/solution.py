@@ -21,6 +21,10 @@ def Solution(case):
     b = case[1]
     c = case[2]
 
+    test = str(a)
+    if c <= len(test):
+        return test[len(test) - c]
+
     start = GetSize(a)
     oldI = 0
     i = GetToN(start, a, b)
