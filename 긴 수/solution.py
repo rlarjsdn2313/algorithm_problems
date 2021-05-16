@@ -7,27 +7,63 @@ def Input():
 
     return Result
 
-# 10의 자리까지 10 / b
-# 100의 자리까지 90 / b
-# 1000의 자리까지 900 / b
-# 10000의 자리까지 90000 / b
-def GetHowMany(i, b):
-    if i == 1:
-        return 10 / b
-    else:
-        return (9 * (10 ** (i - 1))) / b
+def GetHowBig(n):
+    return len(str(n))
 
-def FindState(a, b, c):
-    i = 0
-    while 
+def Get(a, b, c):
+    HowABig = GetHowBig(a)
+    i = 2
+    if HowABig == 1:
+        c -= 9 // b
+
+    d = (9 * (10 ** (i - 1))) // b
+    # 9 * (10 ** (i - 1)) / b
+    while d * i < c:
+        if a >= 10 ** i:
+            continue
+        c -= d
+        i += 1
+        d = (9 * (10 ** (i - 1))) // b
+
+
+    return [i, c]
+
 def Solution(case):
     # Setting Number Part
     a = case[0]
     b = case[1]
     c = case[2]
 
-    # c 가 몇번째 자리 수인지 찾기
 
+    number, index = Get(a, b, c)
+
+    l = 5
+    i = 0
+    R = a + b * i
+
+    while True:
+        if R >= 10 ** (number - 1):
+            while not R >= 10 ** (number - 1):
+                R = a + b * i
+                print(R)
+                i -= 1
+            break
+        else:
+            R = a + b * i
+            i += l
+    
+    i -= 1
+    print(i)
+    print (a + b * i)
+    # while l <= c:
+    #     R = str(a + b * i)
+    #     print(R)
+    #     l = len(R)
+    #     c -= l
+    #     i += 1
+
+    # print(R)
+    # return R[c - 1]
 
 def main():
     Cases = Input()
